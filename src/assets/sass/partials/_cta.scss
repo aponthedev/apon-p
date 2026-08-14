@@ -1,0 +1,357 @@
+/* ======================  CTA Section Start  ======================*/
+.cta {
+    overflow: hidden;
+    background-color: hsl(var(--white) / 0.03);
+
+    &__wrapper {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) clamp(320px, 30vw, 420px);
+        align-items: center;
+        min-height: clamp(360px, 28vw, 430px);
+        overflow: hidden;
+        padding: clamp(32px, 3.2vw, 52px);
+        border: 1px solid hsl(var(--white) / 0.13);
+        border-radius: 30px;
+
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            opacity: 0.12;
+            background-image:
+                linear-gradient(hsl(var(--white) / 0.2) 1px, transparent 1px),
+                linear-gradient(90deg, hsl(var(--white) / 0.2) 1px, transparent 1px);
+            background-size: 42px 42px;
+            mask-image: linear-gradient(90deg, hsl(var(--black)), transparent 76%);
+            pointer-events: none;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            inset: -1px;
+            z-index: 4;
+            padding: 2px;
+            border-radius: inherit;
+            background: conic-gradient(from var(--cta-angle),
+                hsl(var(--white) / 0.08) 0 84%,
+                hsl(var(--base)) 90%,
+                hsl(var(--base-l-200)) 94%,
+                hsl(var(--white) / 0.08) 100%);
+            -webkit-mask: linear-gradient(hsl(var(--black)) 0 0) content-box,
+                linear-gradient(hsl(var(--black)) 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            animation: cta-border-rotate 3.5s linear infinite;
+        }
+    }
+
+    &__content {
+        position: relative;
+        z-index: 3;
+        min-width: 0;
+        max-width: 680px;
+    }
+
+    &__video,
+    &__video-overlay {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__video {
+        z-index: -3;
+        object-fit: cover;
+    }
+
+    &__video-overlay {
+        z-index: -2;
+        background:
+            linear-gradient(90deg, hsl(var(--black) / 0.94) 0%, hsl(var(--black) / 0.82) 48%, hsl(var(--black) / 0.58) 100%),
+            linear-gradient(0deg, hsl(var(--base) / 0.05), hsl(var(--base) / 0.05));
+        pointer-events: none;
+    }
+
+    &__subtitle {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 22px;
+        color: hsl(var(--base));
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+
+        &::before {
+            content: "";
+            width: 30px;
+            height: 1px;
+            background-color: currentColor;
+        }
+    }
+
+    &__title {
+        margin-bottom: 22px;
+        color: hsl(var(--white));
+        font-size: clamp(42px, 3.2vw, 54px);
+        line-height: 1.06;
+        letter-spacing: -0.025em;
+    }
+
+    &__desc {
+        max-width: 590px;
+        margin-bottom: 34px;
+        color: hsl(var(--white) / 0.68);
+        font-size: clamp(16px, 1.15vw, 18px);
+        line-height: 1.75;
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px 24px;
+    }
+
+    &__availability {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        color: hsl(var(--white) / 0.62);
+        font-size: 14px;
+
+        >span {
+            width: 9px;
+            height: 9px;
+            background-color: hsl(var(--base));
+            border-radius: 50%;
+            box-shadow: 0 0 0 5px hsl(var(--base) / 0.12), 0 0 16px hsl(var(--base) / 0.5);
+        }
+    }
+
+    &__thumb {
+        position: absolute;
+        right: clamp(18px, 3vw, 48px);
+        bottom: 0;
+        z-index: 2;
+        width: clamp(280px, 27vw, 380px);
+        max-width: 44%;
+        pointer-events: none;
+        filter: drop-shadow(0 30px 50px hsl(var(--black) / 0.45));
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 16% 8% 6% 12%;
+            z-index: -1;
+            background-color: hsl(var(--base) / 0.2);
+            border-radius: 50%;
+            filter: blur(45px);
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+            mask-image: linear-gradient(90deg, transparent 0%, hsl(var(--black)) 13%, hsl(var(--black)) 100%);
+        }
+    }
+
+    @media (max-width: 1199px) {
+        &__wrapper {
+            grid-template-columns: minmax(0, 1fr) 320px;
+            min-height: 400px;
+            padding: 40px 34px;
+        }
+
+        &__title {
+            font-size: clamp(42px, 5vw, 58px);
+        }
+
+        &__thumb {
+            right: 12px;
+            width: 310px;
+            max-width: 42%;
+        }
+    }
+
+    @media (max-width: 991px) {
+        &__wrapper {
+            grid-template-columns: minmax(0, 1fr) 250px;
+            min-height: 380px;
+            padding: 36px 28px;
+            border-radius: 24px;
+        }
+
+        &__title {
+            font-size: clamp(38px, 4.6vw, 44px);
+        }
+
+        &__desc {
+            max-width: 520px;
+            font-size: 16px;
+        }
+
+        &__thumb {
+            right: 6px;
+            bottom: 0;
+            width: 260px;
+            max-width: 39%;
+        }
+
+        &__availability {
+            display: none;
+        }
+    }
+
+    @media (max-width: 767px) {
+        &__wrapper {
+            display: flex;
+            min-height: auto;
+            flex-direction: column;
+            align-items: stretch;
+            padding: 46px 22px 0;
+            border-radius: 20px;
+        }
+
+        &__content {
+            max-width: 560px;
+        }
+
+        &__subtitle {
+            margin-bottom: 17px;
+            font-size: 12px;
+        }
+
+        &__title {
+            margin-bottom: 18px;
+            font-size: clamp(36px, 10vw, 50px);
+        }
+
+        &__desc {
+            margin-bottom: 28px;
+            font-size: 15px;
+        }
+
+        &__availability {
+            display: inline-flex;
+        }
+
+        &__thumb {
+            position: relative;
+            right: auto;
+            bottom: auto;
+            width: min(92%, 480px);
+            max-width: none;
+            margin: 24px auto -4% auto;
+        }
+
+        &__video-overlay {
+            background: linear-gradient(180deg,
+                hsl(var(--black) / 0.94) 0%,
+                hsl(var(--black) / 0.84) 58%,
+                hsl(var(--black) / 0.58) 100%);
+        }
+    }
+
+    @media (max-width: 479px) {
+        .container {
+            padding-inline: 12px;
+        }
+
+        &__wrapper {
+            padding: 40px 17px 0;
+            border-radius: 16px;
+        }
+
+        &__title {
+            font-size: 25px;
+        }
+
+        &__actions {
+            align-items: flex-start;
+            flex-direction: column;
+        }
+
+        &__availability {
+            font-size: 12px;
+        }
+
+        &__thumb {
+            width: 100%;
+            margin-top: 18px;
+        }
+    }
+
+    @media (max-width: 374px) {
+        .container {
+            padding-inline: 10px;
+        }
+
+        &__wrapper {
+            padding: 36px 14px 0;
+        }
+
+        &__subtitle {
+            gap: 7px;
+            font-size: 10px;
+            letter-spacing: 0.1em;
+
+            &::before {
+                width: 20px;
+            }
+        }
+
+        &__title {
+            font-size: 32px;
+        }
+
+        &__desc {
+            font-size: 14px;
+            line-height: 1.65;
+        }
+
+        &__actions {
+            gap: 18px;
+        }
+
+        &__availability {
+            padding-left: 5px;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        &__wrapper::after {
+            animation: none;
+        }
+
+        &__video {
+            display: none;
+        }
+
+        &__thumb {
+            filter: none;
+        }
+    }
+}
+
+@property --cta-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes cta-border-rotate {
+    to {
+        --cta-angle: 360deg;
+    }
+}
+
+/* ======================  CTA Section End  ======================*/

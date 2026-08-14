@@ -1,0 +1,64 @@
+/* ======================  What-i-do Section Start  ======================*/
+.what-i-do{
+    background-color: hsl(var(--white) / 0.06);
+    border: 2px solid hsl(var(--base));
+    border-radius: 60px;
+    border-left: 0;
+    border-right: 0;
+
+    @include msm-screen{
+        border-radius: 30px ;
+    }
+    
+&__item{
+    background-color: hsl(var(--white) / 0.06);
+    border: 1px solid hsl(var(--border-color) / 0.1);
+    border-radius: 20px;
+    padding: 24px;
+    height: 100%;
+
+    transition: 0.3s ;
+
+    &:hover{
+       border-color: hsl(var(--base));
+
+       .what-i-do__item__icon {
+           color: hsl(var(--black));
+           background-color: hsl(var(--base));
+       }
+        
+    }
+    
+    &__icon{
+        color: hsl(var(--base));
+        height: 60px;
+        width: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: hsl(var(--white) / 0.1);
+        border: 1px solid hsl(var(--border-color) / 0.1);
+        border-radius: 10px;
+        margin-bottom: 20px;
+        transition: color 0.3s ease, background-color 0.3s ease;
+        
+
+        svg{
+            height: 40px;
+            width: 40px;
+        }
+    }
+
+    &__title{
+        font-size: 30px;
+        font-weight: 500px;
+        margin-bottom:16px;
+    }
+
+    &__desc{
+        font-size: 18px;
+        color: hsl(var(--white) / 0.6);
+    }
+}
+}
+/* ======================  What-i-do Section End  ======================*/

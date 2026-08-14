@@ -1,0 +1,163 @@
+/* ======================  Counter Section Start  ======================*/
+.counter-section {
+    overflow: hidden;
+}
+
+.counter {
+    &__item {
+        position: relative;
+        z-index: 0;
+        min-height: 210px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 38px 28px;
+        text-align: center;
+        transition: transform .3s ease;
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-position: center;
+            mask-position: center;
+            -webkit-mask-size: 100% 100%;
+            mask-size: 100% 100%;
+        }
+
+        &::before {
+            inset: 1px;
+            z-index: -1;
+            background: linear-gradient(145deg, hsl(var(--white) / .1), hsl(var(--white) / .05)), hsl(var(--section-bg));
+            transition: background .3s ease;
+        }
+
+        &::after {
+            z-index: -2;
+            background: conic-gradient(from var(--counter-angle), hsl(var(--white) / .08) 0 68%, hsl(var(--base)) 82%, hsl(var(--base-l-200)) 88%, hsl(var(--white) / .08) 100%);
+            animation: counter-glow-rotate 3s linear infinite;
+        }
+
+        &--shape-one::before,
+        &--shape-one::after {
+            -webkit-mask-image: url("../images/counter/counter-shape1.png");
+            mask-image: url("../images/counter/counter-shape1.png");
+        }
+
+        &--shape-two::before,
+        &--shape-two::after {
+            -webkit-mask-image: url("../images/counter/counter-shape2-mask.png");
+            mask-image: url("../images/counter/counter-shape2-mask.png");
+        }
+
+        &--shape-three::before,
+        &--shape-three::after {
+            -webkit-mask-image: url("../images/counter/counter-shape3.png");
+            mask-image: url("../images/counter/counter-shape3.png");
+        }
+
+        &--shape-four::before,
+        &--shape-four::after {
+            -webkit-mask-image: url("../images/counter/counter-shape4.png");
+            mask-image: url("../images/counter/counter-shape4.png");
+        }
+
+        &:hover {
+            transform: translateY(-6px);
+        }
+
+        &__title {
+            margin-bottom: 12px;
+            color: hsl(var(--white));
+            font-size: 42px;
+            line-height: 1;
+        }
+
+        &__desc {
+            color: hsl(var(--white) / .68);
+            font-size: 15px;
+        }
+    }
+
+    &__direction {
+        position: absolute;
+        z-index: 2;
+        top: 10px;
+        right: calc((var(--bs-gutter-x) / -2) - 16px);
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: hsl(var(--white) / .7);
+        border: 1px solid hsl(var(--white) / .1);
+        border-radius: 50%;
+        background: hsl(var(--white) / .08);
+        font-size: 12px;
+        transform: rotate(-45deg);
+
+        &--bottom {
+            top: auto;
+            right: auto;
+            bottom: 10px;
+            left: calc((var(--bs-gutter-x) / -2) - 16px);
+        }
+
+        &--left {
+            right: auto;
+            left: calc((var(--bs-gutter-x) / -2) - 16px);
+        }
+    }
+
+    @include lg-screen {
+        &__item {
+            min-height: 190px;
+
+            &__title {
+                font-size: 36px;
+            }
+        }
+    }
+
+    @include sm-screen {
+        &__item {
+            min-height: 180px;
+
+            &::before {
+                inset: 1px;
+                -webkit-mask-image: none;
+                mask-image: none;
+                border: 1px solid hsl(var(--white) / .08);
+                border-radius: 22px;
+            }
+
+            &::after {
+                inset: 0;
+                -webkit-mask-image: none;
+                mask-image: none;
+                border-radius: 22px;
+            }
+        }
+
+        &__direction {
+            display: none;
+        }
+    }
+}
+
+@property --counter-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes counter-glow-rotate {
+    to {
+        --counter-angle: 360deg;
+    }
+}
+/* ======================  Counter Section End  ======================*/
