@@ -9426,6 +9426,13 @@ input[type=number] {
     }
 }
 
+@media screen and (max-width: 1366px) {
+    .hobbies__automation {
+        min-height: 423px;
+        padding-bottom: 0;
+    }
+}
+
 @media screen and (max-width: 1199px) {
     .hobbies__automation {
         min-height: 353px;

@@ -663,6 +663,14 @@
     }
 }
 
+@media screen and (max-width: 1366px) {
+    .hobbies__automation {
+        min-height: 423px;
+        padding-bottom: 0;
+
+    }
+}
+
 @media screen and (max-width:1199px) {
 
     .hobbies__automation {
@@ -685,11 +693,6 @@
 //     }
 // }
 
-// @media screen and (max-width: 575px) {
-//     .hobbies__automation {
-//         min-height: 214px;
-//         padding-bottom: 0;
-//     }
-// }
+
 
 /* ======================  Hobbies Section End  ======================*/
