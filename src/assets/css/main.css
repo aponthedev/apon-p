@@ -8612,6 +8612,10 @@ input[type=number] {
 }
 /* ======================  CTA Section End  ======================*/
 /* ======================  Social-media Section Start  ======================*/
+.social-media {
+    overflow: hidden;
+}
+
 .social-media__wrap {
     display: flex;
     flex-direction: column;
