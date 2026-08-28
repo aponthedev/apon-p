@@ -1,13 +1,13 @@
 /* ======================  Hobbies Section Start  ======================*/
 .hobbies {
     position: relative;
-    overflow: hidden;  
-   
+    overflow: hidden;
+
     border-top: 2px solid hsl(var(--base));
     border-bottom: 2px solid hsl(var(--base));
     border-radius: 60px;
 
-    &::after{
+    &::after {
         content: '';
         position: absolute;
         top: 0;
@@ -18,7 +18,7 @@
         background-color: hsl(var(--black) / 0.88);
     }
 
-    &__bg{
+    &__bg {
         position: absolute;
         top: 0;
         left: 0;
@@ -26,7 +26,7 @@
         height: 100%;
         width: 100%;
 
-        img{
+        img {
             height: 100%;
             width: 100%;
             object-fit: cover;
@@ -50,7 +50,7 @@
         margin-inline: auto;
         padding: 12px clamp(18px, 3vw, 40px) 40px;
         overflow: hidden;
-       
+
     }
 
     &__button {
@@ -66,11 +66,26 @@
         font-size: 18px;
         text-decoration: none;
         transition: transform .2s ease, box-shadow .2s ease;
-        span { margin-left: 4px; font-size: 24px; line-height: 0; }
-        &:hover { color: hsl(var(--black)); transform: translateY(-2px); box-shadow: 0 0 34px hsl(var(--base) / .48); }
+
+        span {
+            margin-left: 4px;
+            font-size: 24px;
+            line-height: 0;
+        }
+
+        &:hover {
+            color: hsl(var(--black));
+            transform: translateY(-2px);
+            box-shadow: 0 0 34px hsl(var(--base) / .48);
+        }
     }
 
-    &__mockup { position: relative; width: min(1070px, 100%); height: 378px; margin: 12px auto 0; }
+    &__mockup {
+        position: relative;
+        width: min(1070px, 100%);
+        height: 378px;
+        margin: 12px auto 0;
+    }
 
     &__connectors {
         position: absolute;
@@ -78,6 +93,7 @@
         width: 100%;
         height: 100%;
         z-index: 1;
+
         path {
             stroke: hsl(var(--base));
             stroke-opacity: .55;
@@ -126,8 +142,14 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        &--left { left: 0; }
-        &--right { right: 0; }
+
+        &--left {
+            left: 0;
+        }
+
+        &--right {
+            right: 0;
+        }
     }
 
     &__node {
@@ -189,11 +211,25 @@
         }
     }
 
-    &__node--middle-left i { animation-delay: -.3s; }
-    &__side--left &__node:last-child i { animation-delay: -.6s; }
-    &__side--right &__node:first-child i { animation-delay: -.9s; }
-    &__node--middle-right i { animation-delay: -1.2s; }
-    &__side--right &__node:last-child i { animation-delay: -1.5s; }
+    &__node--middle-left i {
+        animation-delay: -.3s;
+    }
+
+    &__side--left &__node:last-child i {
+        animation-delay: -.6s;
+    }
+
+    &__side--right &__node:first-child i {
+        animation-delay: -.9s;
+    }
+
+    &__node--middle-right i {
+        animation-delay: -1.2s;
+    }
+
+    &__side--right &__node:last-child i {
+        animation-delay: -1.5s;
+    }
 
     &__ai {
         position: absolute;
@@ -239,10 +275,21 @@
         }
     }
 
+    @media (min-width: 992px) and (max-width: 1199px) {
+        &__automation {
+            padding-bottom: 0;
+        }
+
+        &__mockup {
+            // Remove the layout space left behind by the scaled-down mockup.
+            margin-bottom: -38px;
+        }
+    }
+
     @media (max-width: 991px) {
         border-radius: 42px;
 
-        > .container {
+        >.container {
             width: 100%;
             max-width: 100%;
             padding-inline: 16px;
@@ -291,16 +338,45 @@
     @media (max-width: 767px) {
         border-radius: 34px;
         padding: 28px 0 24px;
+
         &__automation {
             min-height: 0;
             padding: 10px 12px 12px;
         }
-        &__button { padding: 11px 24px; font-size: 16px; }
-        &__mockup { height: 400px; margin-top: 12px; transform: none; }
-        &__connectors { display: none; }
-        &__side { width: 100%; height: 135px; flex-direction: row; justify-content: space-around; }
-        &__side--left { top: 0; left: 0; }
-        &__side--right { top: auto; right: 0; bottom: 0; }
+
+        &__button {
+            padding: 11px 24px;
+            font-size: 16px;
+        }
+
+        &__mockup {
+            height: 400px;
+            margin-top: 12px;
+            transform: none;
+        }
+
+        &__connectors {
+            display: none;
+        }
+
+        &__side {
+            width: 100%;
+            height: 135px;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        &__side--left {
+            top: 0;
+            left: 0;
+        }
+
+        &__side--right {
+            top: auto;
+            right: 0;
+            bottom: 0;
+        }
+
         &__node {
             width: 78px;
 
@@ -313,13 +389,28 @@
                 font-size: 15px;
             }
         }
+
         &__node--middle-left,
-        &__node--middle-right { width: 64px; }
-        &__node--middle-left { left: 12%; }
-        &__node--middle-right { right: 12%; }
+        &__node--middle-right {
+            width: 64px;
+        }
+
+        &__node--middle-left {
+            left: 12%;
+        }
+
+        &__node--middle-right {
+            right: 12%;
+        }
+
         &__ai {
             width: 130px;
-            span { min-width: 68px; padding: 6px 4px; font-size: 14px; }
+
+            span {
+                min-width: 68px;
+                padding: 6px 4px;
+                font-size: 14px;
+            }
         }
     }
 
@@ -396,7 +487,7 @@
         border-radius: 30px;
         padding: 40px 0;
 
-        > .container {
+        >.container {
             padding-inline: 10px;
         }
 
@@ -476,7 +567,7 @@
         border-radius: 24px;
         padding: 40px 0;
 
-        > .container {
+        >.container {
             padding-inline: 6px;
         }
 
@@ -516,29 +607,89 @@
 }
 
 @keyframes hobbies-line-flow {
-    to { stroke-dashoffset: -36; }
+    to {
+        stroke-dashoffset: -36;
+    }
 }
 
 @keyframes hobbies-dot-ring {
-    0%, 100% { opacity: .55; transform: scale(.82); }
-    50% { opacity: 1; transform: scale(1.12); }
+
+    0%,
+    100% {
+        opacity: .55;
+        transform: scale(.82);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.12);
+    }
 }
 
 @keyframes hobbies-dot-core {
-    0%, 100% { opacity: .75; transform: scale(.8); }
-    50% { opacity: 1; transform: scale(1.22); }
+
+    0%,
+    100% {
+        opacity: .75;
+        transform: scale(.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.22);
+    }
 }
 
 @keyframes hobbies-icon-pulse {
-    0%, 100% { opacity: .72; transform: scale(.88) rotate(-6deg); }
-    50% { opacity: 1; transform: scale(1.18) rotate(6deg); }
+
+    0%,
+    100% {
+        opacity: .72;
+        transform: scale(.88) rotate(-6deg);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.18) rotate(6deg);
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     .hobbies__connectors path,
     .hobbies__connectors circle,
     .hobbies__node--hobby i {
         animation: none;
     }
 }
+
+@media screen and (max-width:1199px) {
+
+    .hobbies__automation {
+        min-height: 353px;
+    }
+
+}
+
+@media screen and (max-width: 991px) {
+    .hobbies__automation {
+        min-height: 100%;
+        padding-bottom: 0;
+    }
+}
+
+// @media screen and (max-width: 768px) {
+//     .hobbies__automation {
+//         min-height: 274px;
+//         padding-bottom: 0;
+//     }
+// }
+
+// @media screen and (max-width: 575px) {
+//     .hobbies__automation {
+//         min-height: 214px;
+//         padding-bottom: 0;
+//     }
+// }
+
 /* ======================  Hobbies Section End  ======================*/

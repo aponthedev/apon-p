@@ -43,6 +43,7 @@
     initializeGalleryGsapAnimation();
     initializeWhatIDoGsapAnimation();
     initializeProductGsapAnimation();
+    initializeSocialMediaGsapAnimation();
     initializeCtaGsapAnimation();
     if (typeof initializeAboutGsapAnimation === 'function') {
       initializeAboutGsapAnimation();
@@ -432,6 +433,193 @@
     );
   }
   // ========================= Product GSAP Animation End =========================
+
+  // ===================== Social Media GSAP Animation Start =====================
+  function initializeSocialMediaGsapAnimation() {
+    const section = document.querySelector('.social-media');
+
+    if (
+      !section ||
+      typeof gsap === 'undefined' ||
+      typeof ScrollTrigger === 'undefined'
+    ) {
+      return;
+    }
+
+    const items = gsap.utils.toArray(section.querySelectorAll('.social-media__item'));
+
+    if (!items.length) return;
+
+    const icons = section.querySelectorAll('.social-media__icon');
+    const lines = section.querySelectorAll('.social-media__line');
+    const names = section.querySelectorAll('.social-media__name');
+    const meta = section.querySelectorAll('.social-media__meta');
+    const heading = section.querySelector('.section-heading__title');
+    const action = section.querySelector('.section-heading .btn');
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    if (heading) {
+      gsap.set(heading, { x: -70, autoAlpha: 0 });
+    }
+
+    if (action) {
+      gsap.set(action, { x: 70, scale: 0.82, autoAlpha: 0 });
+    }
+
+    gsap.set(items, {
+      x: function (index) {
+        return index % 2 === 0 ? -70 : 70;
+      },
+      y: 24,
+      scale: 0.97,
+      autoAlpha: 0,
+    });
+    gsap.set(icons, {
+      scale: 0.35,
+      rotate: -100,
+      autoAlpha: 0,
+    });
+    gsap.set(lines, { scaleX: 0, transformOrigin: 'center' });
+    gsap.set(names, { x: 28, autoAlpha: 0 });
+    gsap.set(meta, { x: 32, autoAlpha: 0 });
+
+    const timeline = gsap.timeline({ paused: true });
+
+    if (heading) {
+      timeline.fromTo(
+        heading,
+        { x: -70, autoAlpha: 0 },
+        {
+          x: 0,
+          autoAlpha: 1,
+          duration: 0.7,
+          ease: 'power2.out',
+          clearProps: 'transform,opacity,visibility',
+        },
+        0
+      );
+    }
+
+    if (action) {
+      timeline.fromTo(
+        action,
+        { x: 70, scale: 0.82, autoAlpha: 0 },
+        {
+          x: 0,
+          scale: 1,
+          autoAlpha: 1,
+          duration: 0.7,
+          ease: 'power2.out',
+          clearProps: 'transform,opacity,visibility',
+        },
+        0.05
+      );
+    }
+
+    timeline
+      .fromTo(
+        items,
+        {
+          x: function (index) {
+            return index % 2 === 0 ? -70 : 70;
+          },
+          y: 24,
+          scale: 0.97,
+          autoAlpha: 0,
+        },
+        {
+          x: 0,
+          y: 0,
+          scale: 1,
+          autoAlpha: 1,
+          duration: 0.85,
+          stagger: 0.12,
+          ease: 'power2.out',
+          clearProps: 'transform,opacity,visibility',
+        },
+        0.25
+      )
+      .fromTo(
+        icons,
+        {
+          scale: 0.35,
+          rotate: -100,
+          autoAlpha: 0,
+        },
+        {
+          scale: 1,
+          rotate: 0,
+          autoAlpha: 1,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: 'back.out(1.5)',
+          clearProps: 'transform,opacity,visibility',
+        },
+        0.35
+      )
+      .fromTo(
+        lines,
+        { scaleX: 0, transformOrigin: 'center' },
+        {
+          scaleX: 1,
+          duration: 0.65,
+          stagger: 0.055,
+          ease: 'power2.out',
+          clearProps: 'transform',
+        },
+        0.42
+      )
+      .fromTo(
+        names,
+        { x: 28, autoAlpha: 0 },
+        {
+          x: 0,
+          autoAlpha: 1,
+          duration: 0.55,
+          stagger: 0.1,
+          ease: 'power2.out',
+          clearProps: 'transform,opacity,visibility',
+        },
+        0.48
+      )
+      .fromTo(
+        meta,
+        { x: 32, autoAlpha: 0 },
+        {
+          x: 0,
+          autoAlpha: 1,
+          duration: 0.5,
+          stagger: 0.1,
+          ease: 'power2.out',
+          clearProps: 'transform,opacity,visibility',
+        },
+        0.52
+      );
+
+    let hasEntered = false;
+
+    ScrollTrigger.create({
+      trigger: section,
+      start: 'top 76%',
+      onEnter: function () {
+        if (hasEntered) return;
+        hasEntered = true;
+        timeline.play(0);
+      },
+      onEnterBack: function () {
+        if (hasEntered) return;
+        hasEntered = true;
+        timeline.progress(1).pause();
+      },
+    });
+
+    requestAnimationFrame(function () {
+      ScrollTrigger.refresh();
+    });
+  }
+
+  // ====================== Social Media GSAP Animation End ======================
 
   // =========================== CTA GSAP Animation Start ===========================
   function initializeCtaGsapAnimation() {
@@ -876,9 +1064,8 @@
    
     origin: 'bottom',
   })
-  sr.reveal('.class__name', {
-    delay: 100,
-  
+  sr.reveal('.hobbies__mockup', {
+    delay: 100,  
     origin: 'bottom',
   })
   // ========================= Scroll Reveal Js End ===================
@@ -923,6 +1110,10 @@
 
       setTimeout(function () {
         preloader.remove();
+
+        if (typeof ScrollTrigger !== 'undefined') {
+          ScrollTrigger.refresh();
+        }
       }, 600);
     }, remainingTime);
   })

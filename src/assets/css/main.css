@@ -9043,6 +9043,16 @@ input[type=number] {
     }
 }
 
+@media (min-width: 992px) and (max-width: 1199px) {
+    .hobbies__automation {
+        padding-bottom: 0;
+    }
+
+    .hobbies__mockup {
+        margin-bottom: -38px;
+    }
+}
+
 @media (max-width: 991px) {
     .hobbies {
         border-radius: 42px;
@@ -9413,6 +9423,19 @@ input[type=number] {
 .hobbies__connectors circle,
 .hobbies__node--hobby i {
         animation: none;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .hobbies__automation {
+        min-height: 353px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .hobbies__automation {
+        min-height: 100%;
+        padding-bottom: 0;
     }
 }
 /* ======================  Hobbies Section End  ======================*/
