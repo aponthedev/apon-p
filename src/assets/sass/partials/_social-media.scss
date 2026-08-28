@@ -1,0 +1,161 @@
+/* ======================  Social-media Section Start  ======================*/
+.social-media {
+    &__wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+    }
+
+    &__item {
+        min-height: 78px;
+        display: grid;
+        grid-template-columns: 66px minmax(70px, 1fr) minmax(180px, 1.25fr) minmax(70px, 1fr) minmax(180px, 1.25fr);
+        align-items: center;
+        gap: 30px;
+        padding: 10px 16px 10px 10px;
+        color: hsl(var(--white));
+        border: 1px solid hsl(var(--white) / .18);
+        border-radius: 50px;
+        overflow: hidden;
+        background-color: hsl(var(--white) / 0.06);
+        transition: transform .45s ease, border-color .45s ease, background-color .45s ease, box-shadow .45s ease;
+
+        &:hover,
+        &:focus-visible {
+            color: hsl(var(--white));
+            border-color: hsl(var(--base) / .7);
+            background-color: hsl(var(--base) / 0.1);
+            box-shadow: 0 12px 30px hsl(var(--black) / .2), inset 0 0 0 1px hsl(var(--base) / .08);
+            transform: translateY(-4px);
+
+            .social-media__icon {
+                color: hsl(var(--black));
+                background-color: hsl(var(--base));
+                transform: scale(1.06) rotate(-8deg);
+            }
+
+            .social-media__line {
+                border-color: hsl(var(--base) / .8);
+            }
+
+            .social-media__name {
+                color: hsl(var(--base));
+                -webkit-text-stroke-color: hsl(var(--base));
+                letter-spacing: .02em;
+            }
+        }
+    }
+
+    &__icon {
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: hsl(var(--white));
+        background-color: hsl(var(--white) / .07);
+        border-radius: 50%;
+        font-size: 22px;
+        transition: transform .45s ease, color .45s ease, background-color .45s ease;
+    }
+
+    &__line {
+        border-top: 2px dashed hsl(var(--white) / .28);
+        transition: border-color .45s ease;
+    }
+
+    &__name {
+        color: transparent;
+        font-family: var(--heading-font);
+        font-size: clamp(28px, 3vw, 42px);
+        font-weight: 400;
+        line-height: 1;
+        text-align: center;
+        -webkit-text-stroke: 1px hsl(var(--white) / .25);
+        transition: color .45s ease, letter-spacing .45s ease, -webkit-text-stroke-color .45s ease;
+    }
+
+    &__meta {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.4;
+        text-align: right;
+
+    }
+
+    &__item--facebook .social-media__icon {
+        color: hsl(var(--white));
+    }
+
+    &__item--twitter .social-media__icon {
+        color: hsl(var(--white));
+    }
+
+    &__item--instagram .social-media__icon {
+        color: hsl(var(--white));
+    }
+
+    &__item--linkedin .social-media__icon {
+        color: hsl(var(--white));
+    }
+
+    &__item--youtube .social-media__icon {
+        color: hsl(var(--white));
+    }
+
+    @include md-screen {
+        &__item {
+            grid-template-columns: 56px minmax(35px, 1fr) minmax(130px, 1.4fr) minmax(35px, 1fr) minmax(140px, 1.3fr);
+            gap: 16px;
+            padding-right: 14px;
+        }
+
+        &__meta {
+            font-size: 14px;
+        }
+    }
+
+    @include sm-screen {
+        &__wrap {
+            gap: 14px;
+        }
+
+        &__item {
+            min-height: 72px;
+            grid-template-columns: 48px 1fr auto;
+            gap: 12px;
+            padding: 8px 12px 8px 8px;
+        }
+
+        &__icon {
+            width: 48px;
+            height: 48px;
+            font-size: 18px;
+        }
+
+        &__line {
+            display: none;
+        }
+
+        &__name {
+            font-size: 26px;
+            text-align: left;
+        }
+
+        &__meta {
+            max-width: 100px;
+            font-size: 12px;
+            white-space: normal;
+            text-align: right;
+        }
+    }
+}
+
+@media screen and (max-width:425px) {
+    .social-media .section-heading__title {
+        margin-bottom: 16px !important;
+    }
+
+}
+
+/* ======================  Social-media Section End  ======================*/

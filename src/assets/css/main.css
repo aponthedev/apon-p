@@ -8611,4 +8611,809 @@ input[type=number] {
     }
 }
 /* ======================  CTA Section End  ======================*/
+/* ======================  Social-media Section Start  ======================*/
+.social-media__wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.social-media__item {
+    min-height: 78px;
+    display: grid;
+    grid-template-columns: 66px minmax(70px, 1fr) minmax(180px, 1.25fr) minmax(70px, 1fr) minmax(180px, 1.25fr);
+    align-items: center;
+    gap: 30px;
+    padding: 10px 16px 10px 10px;
+    color: hsl(var(--white));
+    border: 1px solid hsl(var(--white)/0.18);
+    border-radius: 50px;
+    overflow: hidden;
+    background-color: hsl(var(--white)/0.06);
+    transition: transform 0.45s ease, border-color 0.45s ease, background-color 0.45s ease, box-shadow 0.45s ease;
+}
+
+.social-media__item:hover, .social-media__item:focus-visible {
+    color: hsl(var(--white));
+    border-color: hsl(var(--base)/0.7);
+    background-color: hsl(var(--base)/0.1);
+    box-shadow: 0 12px 30px hsl(var(--black)/0.2), inset 0 0 0 1px hsl(var(--base)/0.08);
+    transform: translateY(-4px);
+}
+
+.social-media__item:hover .social-media__icon, .social-media__item:focus-visible .social-media__icon {
+    color: hsl(var(--black));
+    background-color: hsl(var(--base));
+    transform: scale(1.06) rotate(-8deg);
+}
+
+.social-media__item:hover .social-media__line, .social-media__item:focus-visible .social-media__line {
+    border-color: hsl(var(--base)/0.8);
+}
+
+.social-media__item:hover .social-media__name, .social-media__item:focus-visible .social-media__name {
+    color: hsl(var(--base));
+    -webkit-text-stroke-color: hsl(var(--base));
+    letter-spacing: 0.02em;
+}
+
+.social-media__icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: hsl(var(--white));
+    background-color: hsl(var(--white)/0.07);
+    border-radius: 50%;
+    font-size: 22px;
+    transition: transform 0.45s ease, color 0.45s ease, background-color 0.45s ease;
+}
+
+.social-media__line {
+    border-top: 2px dashed hsl(var(--white)/0.28);
+    transition: border-color 0.45s ease;
+}
+
+.social-media__name {
+    color: transparent;
+    font-family: var(--heading-font);
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 400;
+    line-height: 1;
+    text-align: center;
+    -webkit-text-stroke: 1px hsl(var(--white)/0.25);
+    transition: color 0.45s ease, letter-spacing 0.45s ease, -webkit-text-stroke-color 0.45s ease;
+}
+
+.social-media__meta {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.4;
+    text-align: right;
+}
+
+.social-media__item--facebook .social-media__icon {
+    color: hsl(var(--white));
+}
+
+.social-media__item--twitter .social-media__icon {
+    color: hsl(var(--white));
+}
+
+.social-media__item--instagram .social-media__icon {
+    color: hsl(var(--white));
+}
+
+.social-media__item--linkedin .social-media__icon {
+    color: hsl(var(--white));
+}
+
+.social-media__item--youtube .social-media__icon {
+    color: hsl(var(--white));
+}
+
+@media screen and (max-width: 991px) {
+    .social-media__item {
+        grid-template-columns: 56px minmax(35px, 1fr) minmax(130px, 1.4fr) minmax(35px, 1fr) minmax(140px, 1.3fr);
+        gap: 16px;
+        padding-right: 14px;
+    }
+
+    .social-media__meta {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .social-media__wrap {
+        gap: 14px;
+    }
+
+    .social-media__item {
+        min-height: 72px;
+        grid-template-columns: 48px 1fr auto;
+        gap: 12px;
+        padding: 8px 12px 8px 8px;
+    }
+
+    .social-media__icon {
+        width: 48px;
+        height: 48px;
+        font-size: 18px;
+    }
+
+    .social-media__line {
+        display: none;
+    }
+
+    .social-media__name {
+        font-size: 26px;
+        text-align: left;
+    }
+
+    .social-media__meta {
+        max-width: 100px;
+        font-size: 12px;
+        white-space: normal;
+        text-align: right;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .social-media .section-heading__title {
+        margin-bottom: 16px !important;
+    }
+}
+/* ======================  Social-media Section End  ======================*/
+/* ======================  Hobbies Section Start  ======================*/
+.hobbies {
+    position: relative;
+    overflow: hidden;
+    border-top: 2px solid hsl(var(--base));
+    border-bottom: 2px solid hsl(var(--base));
+    border-radius: 60px;
+}
+
+.hobbies::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    background-color: hsl(var(--black)/0.88);
+}
+
+.hobbies__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    height: 100%;
+    width: 100%;
+}
+
+.hobbies__bg img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.hobbies .section-heading {
+    margin-bottom: 16px;
+}
+
+.hobbies .section-heading__title,
+.hobbies .section-heading__word {
+    filter: none !important;
+}
+
+.hobbies__automation {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    min-height: 460px;
+    margin-inline: auto;
+    padding: 12px clamp(18px, 3vw, 40px) 40px;
+    overflow: hidden;
+}
+
+.hobbies__button {
+    position: relative;
+    z-index: 4;
+    display: table;
+    margin: 0 auto;
+    padding: 13px 34px;
+    border-radius: 8px;
+    color: hsl(var(--black));
+    background: linear-gradient(110deg, hsl(var(--base)), hsl(var(--base-l-200)));
+    box-shadow: 0 0 25px hsl(var(--base)/0.3);
+    font-size: 18px;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hobbies__button span {
+    margin-left: 4px;
+    font-size: 24px;
+    line-height: 0;
+}
+
+.hobbies__button:hover {
+    color: hsl(var(--black));
+    transform: translateY(-2px);
+    box-shadow: 0 0 34px hsl(var(--base)/0.48);
+}
+
+.hobbies__mockup {
+    position: relative;
+    width: min(1070px, 100%);
+    height: 378px;
+    margin: 12px auto 0;
+}
+
+.hobbies__connectors {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hobbies__connectors path {
+    stroke: hsl(var(--base));
+    stroke-opacity: 0.55;
+    stroke-width: 2;
+    stroke-dasharray: 8 10;
+    animation: hobbies-line-flow 1.8s linear infinite;
+}
+
+.hobbies__connectors path:nth-child(n+4) {
+    animation-direction: reverse;
+}
+
+.hobbies__connectors g {
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+.hobbies__connectors g circle:first-child {
+    fill: hsl(var(--body-bg));
+    stroke: hsl(var(--base)/0.58);
+    stroke-width: 2;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: hobbies-dot-ring 1.8s ease-in-out infinite;
+}
+
+.hobbies__connectors g circle:last-child {
+    fill: hsl(var(--base));
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: hobbies-dot-core 1.8s ease-in-out infinite;
+}
+
+.hobbies__connectors g:nth-of-type(even) circle {
+    animation-delay: -0.9s;
+}
+
+.hobbies__side {
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    width: 230px;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hobbies__side--left {
+    left: 0;
+}
+
+.hobbies__side--right {
+    right: 0;
+}
+
+.hobbies__node {
+    width: 110px;
+    height: auto;
+    aspect-ratio: 110/91;
+    object-fit: contain;
+    filter: brightness(0) saturate(100%) invert(95%) sepia(80%) saturate(777%) hue-rotate(27deg) brightness(101%) contrast(95%);
+}
+
+.hobbies__node--hobby {
+    position: relative;
+    display: grid;
+    place-items: center;
+    filter: none;
+}
+
+.hobbies__node--hobby img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(0) saturate(100%) invert(95%) sepia(80%) saturate(777%) hue-rotate(27deg) brightness(101%) contrast(95%);
+}
+
+.hobbies__node--hobby::before {
+    content: "";
+    position: relative;
+    z-index: 1;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: hsl(var(--body-bg));
+}
+
+.hobbies__node--hobby i {
+    position: absolute;
+    z-index: 2;
+    color: hsl(var(--base));
+    font-size: 19px;
+    animation: hobbies-icon-pulse 1.8s ease-in-out infinite;
+}
+
+.hobbies__node--middle-left, .hobbies__node--middle-right {
+    position: absolute;
+    top: 50%;
+    z-index: 3;
+}
+
+.hobbies__node--middle-left {
+    left: 21%;
+    transform: translate(-50%, -50%);
+}
+
+.hobbies__node--middle-right {
+    right: 21%;
+    transform: translate(50%, -50%);
+}
+
+.hobbies__node--middle-left i {
+    animation-delay: -0.3s;
+}
+
+.hobbies__side--left .hobbies__node:last-child i {
+    animation-delay: -0.6s;
+}
+
+.hobbies__side--right .hobbies__node:first-child i {
+    animation-delay: -0.9s;
+}
+
+.hobbies__node--middle-right i {
+    animation-delay: -1.2s;
+}
+
+.hobbies__side--right .hobbies__node:last-child i {
+    animation-delay: -1.5s;
+}
+
+.hobbies__ai {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    width: 180px;
+    aspect-ratio: 1;
+    transform: translate(-50%, -50%);
+}
+
+.hobbies__ai img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(0) saturate(100%) invert(95%) sepia(80%) saturate(777%) hue-rotate(27deg) brightness(101%) contrast(95%) drop-shadow(0 0 18px hsl(var(--base)/0.2));
+}
+
+.hobbies__ai span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 86px;
+    padding: 8px 7px;
+    color: hsl(var(--base));
+    border: 3px solid hsl(var(--base));
+    background: hsl(var(--body-bg));
+    box-shadow: 0 0 0 5px hsl(var(--body-bg)), 0 0 18px hsl(var(--base)/0.2);
+    font-family: var(--heading-font);
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+@media (max-width: 1199px) {
+    .hobbies {
+        border-radius: 50px;
+    }
+
+    .hobbies__mockup {
+        transform: scale(0.9);
+        transform-origin: top center;
+    }
+}
+
+@media (max-width: 991px) {
+    .hobbies {
+        border-radius: 42px;
+    }
+
+    .hobbies > .container {
+        width: 100%;
+        max-width: 100%;
+        padding-inline: 16px;
+    }
+
+    .hobbies__automation {
+        min-height: 0;
+        padding-inline: 12px;
+    }
+
+    .hobbies__mockup {
+        width: 100%;
+        transform: none;
+        transform-origin: top center;
+    }
+
+    .hobbies__side {
+        width: 190px;
+    }
+
+    .hobbies__node {
+        width: 82px;
+    }
+
+    .hobbies__node--hobby::before {
+        width: 32px;
+        height: 32px;
+    }
+
+    .hobbies__node--hobby i {
+        font-size: 16px;
+    }
+
+    .hobbies__ai {
+        width: 150px;
+    }
+
+    .hobbies__ai span {
+        min-width: 76px;
+        padding: 7px 5px;
+        border-width: 2px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 767px) {
+    .hobbies {
+        border-radius: 34px;
+        padding: 28px 0 24px;
+    }
+
+    .hobbies__automation {
+        min-height: 0;
+        padding: 10px 12px 12px;
+    }
+
+    .hobbies__button {
+        padding: 11px 24px;
+        font-size: 16px;
+    }
+
+    .hobbies__mockup {
+        height: 400px;
+        margin-top: 12px;
+        transform: none;
+    }
+
+    .hobbies__connectors {
+        display: none;
+    }
+
+    .hobbies__side {
+        width: 100%;
+        height: 135px;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .hobbies__side--left {
+        top: 0;
+        left: 0;
+    }
+
+    .hobbies__side--right {
+        top: auto;
+        right: 0;
+        bottom: 0;
+    }
+
+    .hobbies__node {
+        width: 78px;
+    }
+
+    .hobbies__node--hobby::before {
+        width: 30px;
+        height: 30px;
+    }
+
+    .hobbies__node--hobby i {
+        font-size: 15px;
+    }
+
+    .hobbies__node--middle-left, .hobbies__node--middle-right {
+        width: 64px;
+    }
+
+    .hobbies__node--middle-left {
+        left: 12%;
+    }
+
+    .hobbies__node--middle-right {
+        right: 12%;
+    }
+
+    .hobbies__ai {
+        width: 130px;
+    }
+
+    .hobbies__ai span {
+        min-width: 68px;
+        padding: 6px 4px;
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .hobbies__automation {
+        min-height: 0;
+    }
+
+    .hobbies__mockup {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1070/378;
+    }
+
+    .hobbies__connectors {
+        display: block;
+    }
+
+    .hobbies__side {
+        top: 0;
+        width: 18.7%;
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .hobbies__side--left {
+        left: 0;
+    }
+
+    .hobbies__side--right {
+        right: 0;
+        bottom: auto;
+    }
+
+    .hobbies__node {
+        width: 68px;
+    }
+
+    .hobbies__node--hobby::before {
+        width: 26px;
+        height: 26px;
+    }
+
+    .hobbies__node--hobby i {
+        font-size: 13px;
+    }
+
+    .hobbies__node--middle-left, .hobbies__node--middle-right {
+        width: 60px;
+    }
+
+    .hobbies__node--middle-left {
+        left: 21%;
+    }
+
+    .hobbies__node--middle-right {
+        right: 21%;
+    }
+
+    .hobbies__ai {
+        width: 120px;
+    }
+
+    .hobbies__ai span {
+        min-width: 62px;
+        padding: 5px 4px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 575px) {
+    .hobbies {
+        border-radius: 30px;
+        padding: 40px 0;
+    }
+
+    .hobbies > .container {
+        padding-inline: 10px;
+    }
+
+    .hobbies__automation {
+        min-height: 0;
+        padding: 6px;
+    }
+
+    .hobbies__mockup {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1070/378;
+        margin-top: 8px;
+    }
+
+    .hobbies__connectors {
+        display: block;
+    }
+
+    .hobbies__side {
+        top: 0;
+        width: 18.7%;
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .hobbies__side--left {
+        left: 0;
+    }
+
+    .hobbies__side--right {
+        right: 0;
+        bottom: auto;
+    }
+
+    .hobbies__node {
+        width: 52px;
+    }
+
+    .hobbies__node--hobby::before {
+        width: 21px;
+        height: 21px;
+    }
+
+    .hobbies__node--hobby i {
+        font-size: 11px;
+    }
+
+    .hobbies__node--middle-left, .hobbies__node--middle-right {
+        width: 44px;
+    }
+
+    .hobbies__node--middle-left {
+        left: 21%;
+    }
+
+    .hobbies__node--middle-right {
+        right: 21%;
+    }
+
+    .hobbies__ai {
+        width: 90px;
+    }
+
+    .hobbies__ai span {
+        min-width: 50px;
+        padding: 4px 3px;
+        border-width: 1px;
+        box-shadow: 0 0 0 3px hsl(var(--body-bg)), 0 0 12px hsl(var(--base)/0.2);
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 424px) {
+    .hobbies {
+        border-radius: 24px;
+        padding: 40px 0;
+    }
+
+    .hobbies > .container {
+        padding-inline: 6px;
+    }
+
+    .hobbies__automation {
+        min-height: 0;
+        padding: 4px;
+    }
+
+    .hobbies__node {
+        width: 42px;
+    }
+
+    .hobbies__node--hobby::before {
+        width: 18px;
+        height: 18px;
+    }
+
+    .hobbies__node--hobby i {
+        font-size: 9px;
+    }
+
+    .hobbies__node--middle-left, .hobbies__node--middle-right {
+        width: 38px;
+    }
+
+    .hobbies__ai {
+        width: 78px;
+    }
+
+    .hobbies__ai span {
+        min-width: 44px;
+        padding: 3px 2px;
+        font-size: 10px;
+    }
+}
+
+@keyframes hobbies-line-flow {
+    to {
+        stroke-dashoffset: -36;
+    }
+}
+
+@keyframes hobbies-dot-ring {
+    0%, 100% {
+        opacity: 0.55;
+        transform: scale(0.82);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.12);
+    }
+}
+
+@keyframes hobbies-dot-core {
+    0%, 100% {
+        opacity: 0.75;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.22);
+    }
+}
+
+@keyframes hobbies-icon-pulse {
+    0%, 100% {
+        opacity: 0.72;
+        transform: scale(0.88) rotate(-6deg);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.18) rotate(6deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hobbies__connectors path,
+.hobbies__connectors circle,
+.hobbies__node--hobby i {
+        animation: none;
+    }
+}
+/* ======================  Hobbies Section End  ======================*/
 /*# sourceMappingURL=main.css.map */

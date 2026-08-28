@@ -634,6 +634,11 @@
 
     headings.forEach(function (heading) {
       const sectionHeading = heading.closest('.section-heading');
+
+      if (sectionHeading && sectionHeading.classList.contains('section-heading--static')) {
+        return;
+      }
+
       const description = sectionHeading
         ? sectionHeading.querySelector('.section-heading__desc')
         : null;
