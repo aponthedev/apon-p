@@ -8272,7 +8272,6 @@ input[type=number] {
 .cta {
     overflow: hidden;
     background-color: hsl(var(--white)/0.03);
-    border: 1px solid hsl(var(--base)/0.1);
 }
 
 .cta__wrapper {
