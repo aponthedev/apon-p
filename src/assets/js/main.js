@@ -1093,6 +1093,86 @@
   });
   // ========================== Label Required Js End =====================
 
+  // mouse carsor
+  // function mim_tm_cursor() {
+
+  //     var myCursor = jQuery('.mouse-cursor');
+
+  //     if (myCursor.length) {
+  //       if ($("body")) {
+
+  //         const e = document.querySelector(".cursor-inner"),
+  //           t = document.querySelector(".cursor-outer");
+  //         let n, i = 0,
+  //           o = !1;
+  //         window.onmousemove = function (s) {
+  //           o || (t.style.transform = "translate(" + s.clientX + "px, " + s.clientY + "px)"), e.style.transform = "translate(" + s.clientX + "px, " + s.clientY + "px)", n = s.clientY, i = s.clientX
+  //         }, $("body").on("mouseenter", "a, .cursor-pointer", function () {
+  //           e.classList.add("cursor-hover"), t.classList.add("cursor-hover")
+  //         }), $("body").on("mouseleave", "a, .cursor-pointer", function () {
+  //           $(this).is("a") && $(this).closest(".cursor-pointer").length || (e.classList.remove("cursor-hover"), t.classList.remove("cursor-hover"))
+  //         }), e.style.visibility = "visible", t.style.visibility = "visible"
+  //       }
+  //     }
+  //   };
+
+  //   mim_tm_cursor()
+
+
+  function mim_tm_cursor() {
+
+    var myCursor = jQuery('.mouse-cursor');
+
+    if (myCursor.length) {
+
+        const e = document.querySelector(".cursor-inner"),
+            t = document.querySelector(".cursor-outer");
+
+        let mouseX = 0,
+            mouseY = 0,
+            outerX = 0,
+            outerY = 0;
+
+        window.addEventListener("mousemove", function (s) {
+            mouseX = s.clientX;
+            mouseY = s.clientY;
+
+            // Inner cursor দ্রুত move করবে
+            e.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+        });
+
+        function animateCursor() {
+
+            // Outer cursor একটু slow ও smooth হবে
+            outerX += (mouseX - outerX) * 0.12;
+            outerY += (mouseY - outerY) * 0.12;
+
+            t.style.transform = `translate(${outerX}px, ${outerY}px)`;
+
+            requestAnimationFrame(animateCursor);
+        }
+
+        animateCursor();
+
+        $("body").on("mouseenter", "a, .cursor-pointer", function () {
+            e.classList.add("cursor-hover");
+            t.classList.add("cursor-hover");
+        });
+
+        $("body").on("mouseleave", "a, .cursor-pointer", function () {
+            $(this).is("a") && $(this).closest(".cursor-pointer").length ||
+                (e.classList.remove("cursor-hover"),
+                t.classList.remove("cursor-hover"));
+        });
+
+        e.style.visibility = "visible";
+        t.style.visibility = "visible";
+    }
+}
+
+mim_tm_cursor();
+  // mouse carsor
+
 
   // ========================= Preloader Js Start =====================
   $(window).on("load", function () {
