@@ -8876,7 +8876,7 @@ input[type=number] {
     max-width: 100%;
     min-height: 460px;
     margin-inline: auto;
-    padding: 12px clamp(18px, 3vw, 40px) 40px;
+    padding: 12px 0 40px;
     overflow: hidden;
 }
 
@@ -8909,8 +8909,9 @@ input[type=number] {
 
 .hobbies__mockup {
     position: relative;
-    width: min(1070px, 100%);
-    height: 378px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1070/378;
     margin: 12px auto 0;
 }
 
@@ -9098,7 +9099,7 @@ input[type=number] {
     }
 
     .hobbies__mockup {
-        transform: scale(0.9);
+        transform: none;
         transform-origin: top center;
     }
 }
@@ -9109,7 +9110,7 @@ input[type=number] {
     }
 
     .hobbies__mockup {
-        margin-bottom: -38px;
+        margin-bottom: 0;
     }
 }
 

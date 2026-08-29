@@ -48,7 +48,7 @@
         max-width: 100%;
         min-height: 460px;
         margin-inline: auto;
-        padding: 12px clamp(18px, 3vw, 40px) 40px;
+        padding: 12px 0 40px;
         overflow: hidden;
 
     }
@@ -82,8 +82,9 @@
 
     &__mockup {
         position: relative;
-        width: min(1070px, 100%);
-        height: 378px;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1070 / 378;
         margin: 12px auto 0;
     }
 
@@ -270,7 +271,7 @@
         border-radius: 50px;
 
         &__mockup {
-            transform: scale(.9);
+            transform: none;
             transform-origin: top center;
         }
     }
@@ -281,8 +282,7 @@
         }
 
         &__mockup {
-            // Remove the layout space left behind by the scaled-down mockup.
-            margin-bottom: -38px;
+            margin-bottom: 0;
         }
     }
 
