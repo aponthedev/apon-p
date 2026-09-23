@@ -50,12 +50,18 @@
             transition: opacity 0.4s ease;
         }
 
-        img {
+        img,
+        video {
             display: block;
             width: 100%;
             max-width: 100%;
             height: auto;
             transition: transform 0.65s cubic-bezier(0.2, 0.75, 0.25, 1), filter 0.4s ease;
+        }
+
+        video {
+            aspect-ratio: 1;
+            object-fit: cover;
         }
 
         &__overlay {
@@ -107,7 +113,8 @@
                 opacity: 1;
             }
 
-            img {
+            img,
+            video {
                 transform: scale(1.03);
                 filter: saturate(1.08);
             }

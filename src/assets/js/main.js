@@ -747,7 +747,13 @@
       }
 
       items.forEach(function (item, index) {
-        columns[index % columnCount].appendChild(item);
+        const preferredDesktopColumn = Number(item.dataset.galleryDesktopColumn);
+        const columnIndex =
+          columnCount === 4 && preferredDesktopColumn >= 1 && preferredDesktopColumn <= columnCount
+            ? preferredDesktopColumn - 1
+            : index % columnCount;
+
+        columns[columnIndex].appendChild(item);
       });
 
       grid.appendChild(fragment);
@@ -972,7 +978,7 @@
 
   if ($('.gallery__grid').length) {
     $('.gallery__grid').magnificPopup({
-      delegate: '.gallery__item',
+      delegate: '.gallery__item:not(.gallery__item--video)',
       type: 'image',
       gallery: {
         enabled: true,

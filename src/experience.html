@@ -360,12 +360,19 @@
         </div>
       </div>
     </div>
-
     <div class="gallery__grid" aria-label="Photo gallery">
+      <div class="gallery__item gallery__item--video" aria-label="Gallery video 1">
+        <video autoplay muted loop playsinline preload="metadata" aria-label="Gallery video">
+          <source src="assets/images/gallery/gallery-video.mp4" type="video/mp4">
+        </video>
+        <span class="gallery__item__overlay">
+          <span class="gallery__item__number">01</span>
+        </span>
+      </div>
       <a href="assets/images/gallery/gallery1.jpg" class="gallery__item" aria-label="Open gallery image 1">
         <img src="assets/images/gallery/gallery1.jpg" alt="Gallery moment 1" loading="lazy" decoding="async">
         <span class="gallery__item__overlay">
-          <span class="gallery__item__number">01</span>
+          <span class="gallery__item__number">02</span>
           <span class="gallery__item__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none">
               <path d="M7 17 17 7M8 7h9v9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
@@ -558,6 +565,7 @@
   </div>
 </section>
 <!--==========================  Gallery Section End  ==========================-->
+
     <!--==========================  CTA Section Start  ==========================-->
 <section class="cta py-100" id="contact">
   <div class="container">

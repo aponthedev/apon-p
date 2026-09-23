@@ -8091,12 +8091,18 @@ input[type=number] {
     transition: opacity 0.4s ease;
 }
 
-.gallery__item img {
+.gallery__item img,
+.gallery__item video {
     display: block;
     width: 100%;
     max-width: 100%;
     height: auto;
     transition: transform 0.65s cubic-bezier(0.2, 0.75, 0.25, 1), filter 0.4s ease;
+}
+
+.gallery__item video {
+    aspect-ratio: 1;
+    object-fit: cover;
 }
 
 .gallery__item__overlay {
@@ -8149,7 +8155,9 @@ input[type=number] {
     opacity: 1;
 }
 
-.gallery__item:hover img, .gallery__item:focus-visible img {
+.gallery__item:hover img,
+.gallery__item:hover video, .gallery__item:focus-visible img,
+.gallery__item:focus-visible video {
     transform: scale(1.03);
     filter: saturate(1.08);
 }
