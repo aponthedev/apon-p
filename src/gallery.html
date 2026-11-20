@@ -116,7 +116,16 @@
                             <li><a href="#" class="active">Home</a></li>
                             <li><a href="experience.html">Experience</a></li>
                             <li><a href="skills.html">Skills</a></li>
-                            <li><a href="gallery.html">Gallery</a></li>
+                            <li class="nav-gallery dropdown">
+                                <button class="nav-gallery__toggle" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false" aria-controls="gallery-menu-mobile">
+                                    Gallery <i class="las la-angle-down" aria-hidden="true"></i>
+                                </button>
+                                <ul class="dropdown-menu" id="gallery-menu-mobile">
+                                    <li><a class="dropdown-item" href="gallery.html#gallery-photos">Photo Gallery</a></li>
+                                    <li><a class="dropdown-item" href="gallery.html#gallery-video">Video Gallery</a></li>
+                                </ul>
+                            </li>
                             <li><a href="#">Contact Us</a></li>
 
                         </ul>
@@ -140,7 +149,16 @@
                             <li><a href="#" class="active">Home</a></li>
                             <li><a href="experience.html">Experience</a></li>
                             <li><a href="skills.html">Skills</a></li>
-                            <li><a href="gallery.html">Gallery</a></li>
+                            <li class="nav-gallery dropdown">
+                                <button class="nav-gallery__toggle" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false" aria-controls="gallery-menu-desktop">
+                                    Gallery <i class="las la-angle-down" aria-hidden="true"></i>
+                                </button>
+                                <ul class="dropdown-menu" id="gallery-menu-desktop">
+                                    <li><a class="dropdown-item" href="gallery.html#gallery-photos">Events Gallery</a></li>
+                                    <li><a class="dropdown-item" href="gallery.html#gallery-video">Artists Gallery</a></li>
+                                </ul>
+                            </li>
                             <li><a href="#">Contact Us</a></li>
 
                         </ul>
@@ -231,7 +249,7 @@
         <div class="container">
 
             <div class="gallery__grid" aria-label="Photo gallery">
-                <div class="gallery__item gallery__item--video" aria-label="Gallery video 1">
+                <div id="gallery-video" class="gallery__item gallery__item--video" aria-label="Gallery video 1">
                     <video autoplay muted loop playsinline preload="metadata" aria-label="Gallery video">
                         <source src="assets/images/gallery/gallery-video.mp4" type="video/mp4">
                     </video>
@@ -239,7 +257,7 @@
                         <span class="gallery__item__number">01</span>
                     </span>
                 </div>
-                <a href="assets/images/gallery/gallery1.jpg" class="gallery__item" aria-label="Open gallery image 1">
+                <a id="gallery-photos" href="assets/images/gallery/gallery1.jpg" class="gallery__item" aria-label="Open gallery image 1">
                     <img src="assets/images/gallery/gallery1.jpg" alt="Gallery moment 1" loading="lazy" decoding="async">
                     <span class="gallery__item__overlay">
                         <span class="gallery__item__number">02</span>

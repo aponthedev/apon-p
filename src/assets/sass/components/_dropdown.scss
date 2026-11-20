@@ -136,7 +136,7 @@
 .dropdown-item.active,
 .dropdown-item:active {
     color: hsl(var(--white)) !important;
-    background: linear-gradient(95deg, hsl(var(--base)), hsl(var(--base-two))) !important;
+    background: hsl(var(--base));
 
     p {
         color: inherit !important;

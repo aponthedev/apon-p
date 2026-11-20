@@ -251,6 +251,109 @@
 /* ======================  Offcanvas Section End  ======================*/
 
 
+.header__menu,
+.offcanvas__menu {
+    .nav-gallery {
+        position: relative;
+
+        > .nav-gallery__toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 0;
+            border: 0;
+            background: transparent;
+            color: hsl(var(--heading-color));
+            font: inherit;
+            font-size: 16px;
+            cursor: pointer;
+
+            i {
+                font-size: 12px;
+                transition: transform .2s;
+            }
+
+            &:hover,
+            &[aria-expanded="true"] {
+                color: hsl(var(--base));
+            }
+
+            &[aria-expanded="true"] i {
+                transform: rotate(180deg);
+            }
+
+            &:focus-visible {
+                outline: 2px solid hsl(var(--base));
+                outline-offset: 4px;
+            }
+        }
+
+        > .dropdown-menu {
+            display: none;
+            min-width: 190px;
+            padding: 8px;
+            border: 1px solid hsl(var(--base) / .22);
+            background: hsl(var(--black) / .98);
+            box-shadow: 0 18px 45px hsl(var(--black) / .45);
+
+            &.show {
+                display: block;
+            }
+
+            &::before {
+                background: hsl(var(--black));
+                border-color: hsl(var(--base) / .22);
+            }
+
+            .dropdown-item {
+                display: flex;
+                width: 100%;
+                min-height: 42px;
+                padding: 10px 14px;
+                border: 0;
+                border-radius: 8px;
+                color: hsl(var(--white) / .8);
+                font-size: 14px;
+
+                &::after {
+                    content: none;
+                }
+            }
+        }
+    }
+}
+
+.offcanvas__area .offcanvas__menu .nav-gallery {
+    > .nav-gallery__toggle {
+        justify-content: space-between;
+        width: 100%;
+        min-height: 48px;
+        padding: 10px 16px;
+        border-radius: 12px;
+        font-size: 15px;
+
+        &[aria-expanded="true"] {
+            background: hsl(var(--base) / .08);
+        }
+    }
+
+    > .dropdown-menu {
+        position: static !important;
+        transform: none !important;
+        margin: 4px 0 0 !important;
+        box-shadow: none;
+
+        &::before {
+            content: none;
+        }
+    }
+}
+
+#gallery-photos,
+#gallery-video {
+    scroll-margin-top: 100px;
+}
+
 /* ======================  Header Section Start  ======================*/
 .header__area {
     padding: 10px 0;
